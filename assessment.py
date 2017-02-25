@@ -72,6 +72,55 @@ included in the doctest.
 
 ###############################################################################
 
+
+def is_hometown(town_name):
+    """determins if the town_name is hometown "Citi1"
+
+    >>> is_hometown("City1")
+    True
+    
+    >>> is_hometown(3)
+    False
+    
+    >>> is_hometown([])
+    False
+    """
+
+    hometown = "City1"
+    return town_name == hometown
+
+    # Question:
+    # Python does not allow to check if parameter is there or not
+    # inside the function (eg. if(!town_name): return False)
+    # Is there a way to catch the error without calling it from
+    # other error-catcher function?
+
+def make_full_name(first_name, last_name):
+    """Concatinate first and last names to make a full name
+    
+    >>> make_full_name("Cathy", "Thomas")
+    'Cathy Thomas'
+
+    >>> make_full_name(0, "Thomas")
+    'Please input strings for the first & last names.'
+    
+    # Solution 2 assertion
+    # >>> make_full_name("Tom","jones")
+    # 'Tom Jones'
+
+    # >>> make_full_name("TOM","JONES")
+    # 'Tom Jones'
+
+    """
+    if type(first_name) != str or type(last_name) != str:
+        return 'Please input strings for the first & last names.'
+    return first_name+' '+last_name
+
+    ## Solution 2: if the first letter needs to be capitalized
+    # return first_name[0].upper()+first_name[1:].lower()\
+    # +' '+last_name[0].upper()+last_name[1:].lower()
+
+
 # PART TWO
 
 # 1. (a) Write a function, `is_berry()`, which takes a fruit name as a string
