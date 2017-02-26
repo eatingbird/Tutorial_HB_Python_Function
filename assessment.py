@@ -114,9 +114,9 @@ def make_full_name(first_name, last_name):
 
     """
 
-    # Type edge case (uses type built-in function)
-    if type(first_name) != str or type(last_name) != str:
-        return 'Please input strings for the first & last names.'
+    # # Type edge case (uses type built-in function)
+    # if type(first_name) != str or type(last_name) != str:
+    #     return 'Please input strings for the first & last names.'
 
     return first_name+' '+last_name
 
@@ -148,9 +148,9 @@ def is_berry(fruit):
 
     fruits = {"strawberry", "cherry", "blackberry"}
 
-    # Type edge case (uses type built-in function)
-    if type(fruit) != str:
-        return 'Please input the fruit name in string.'
+    # # Type edge case (uses type built-in function)
+    # if type(fruit) != str:
+    #     return 'Please input the fruit name in string.'
     
     return fruit in fruits
     
@@ -163,9 +163,9 @@ def is_berry(fruit):
 def shipping_cost(fruit):
     """Calculates shipping cost of fruit"""
 
-    # Type edge case (uses type built-in function)
-    if type(fruit) != str:
-        return 'Please input the fruit name in string.'
+    # # Type edge case (uses type built-in function)
+    # if type(fruit) != str:
+    #     return 'Please input the fruit name in string.'
 
     if is_berry(fruit):
         return 0
@@ -181,9 +181,9 @@ def append_to_list(lst, num):
     """Creates a new list consisting of the old list with the given number
        added to the end."""
 
-    # Type edge case (uses type built-in function)
-    if type(num) != int:
-        return 'Please input an integer.'
+    # # Type edge case (uses type built-in function)
+    # if type(num) != int:
+    #     return 'Please input an integer.'
 
     return lst + [num]
 
