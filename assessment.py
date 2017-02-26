@@ -102,9 +102,9 @@ def make_full_name(first_name, last_name):
     >>> make_full_name("Cathy", "Thomas")
     'Cathy Thomas'
 
-    # # For type edge case
-    # >>> make_full_name(0, "Thomas")
-    # 'Please input strings for the first & last names.'
+    # For type edge case
+    >>> make_full_name(0, "Thomas")
+    'Please input strings for the first & last names.'
     
     # Solution 2 assertion
     # >>> make_full_name("Tom","jones")
@@ -115,9 +115,9 @@ def make_full_name(first_name, last_name):
 
     """
 
-    # # Type edge case (uses type built-in function)
-    # if type(first_name) != str or type(last_name) != str:
-    #     return 'Please input strings for the first & last names.'
+    # Type edge case (uses type built-in function)
+    if type(first_name) != str or type(last_name) != str:
+        return 'Please input strings for the first & last names.'
 
     return first_name+' '+last_name
 
@@ -149,9 +149,9 @@ def is_berry(fruit):
 
     fruits = {"strawberry", "cherry", "blackberry"}
 
-    # # Type edge case (uses type built-in function)
-    # if type(fruit) != str:
-    #     return 'Please input the fruit name in string.'
+    # Type edge case (uses type built-in function)
+    if type(fruit) != str:
+        return 'Please input the fruit name in string.'
     
     return fruit in fruits
     
@@ -164,9 +164,9 @@ def is_berry(fruit):
 def shipping_cost(fruit):
     """Calculates shipping cost of fruit"""
 
-    # # Type edge case (uses type built-in function)
-    # if type(fruit) != str:
-    #     return 'Please input the fruit name in string.'
+    # Type edge case (uses type built-in function)
+    if type(fruit) != str:
+        return 'Please input the fruit name in string.'
 
     if is_berry(fruit):
         return 0
@@ -182,9 +182,9 @@ def append_to_list(lst, num):
     """Creates a new list consisting of the old list with the given number
        added to the end."""
 
-    # # Type edge case (uses type built-in function)
-    # if type(num) != int:
-    #     return 'Please input an integer.'
+    # Type edge case (uses type built-in function)
+    if type(num) != int:
+        return 'Please input an integer.'
 
     return lst + [num]
 
@@ -207,18 +207,23 @@ def append_to_list(lst, num):
 #    fees.
 
 def calculate_price(item_cost, state, tax_rate = .05):
-    """Calculates total price by adding tax-by-state to base price
+    """Calculates total price by adding tax-by-state to base price"""
 
-    len is a built-in func &  since there is no edge cases above
-    dealing with more/less that two letter state, the error proof skipped
-    for other study's sake. also, negative values of inputs and other
-    edge cases are ignored for the sake of homework.
+    # Check if the entered state value is two letter string
+    if len(state) != 2 or type(state) != str: 
+        print "Please enter two letters for the state."
+        return
+
+    # Check if the entered item cost is a number
+    if type(item_cost) != int and type(item_cost) != float:
+        print "Item cost should be a number."
+        return
+
+    # Check if the entered tax rate is a number
+    if type(item_cost) != int and type(item_cost) != float:
+        print "Tax rate should be a number."
+        return
     
-    Fun I love, but too much fun is of all things the most loathsome. 
-    Mirth is better than fun, and happiness is better than mirth.
-    - William Blake
-
-    """
     state = state.upper()
 
     # calculate after tax amount
