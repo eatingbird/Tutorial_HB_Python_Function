@@ -102,8 +102,9 @@ def make_full_name(first_name, last_name):
     >>> make_full_name("Cathy", "Thomas")
     'Cathy Thomas'
 
-    >>> make_full_name(0, "Thomas")
-    'Please input strings for the first & last names.'
+    # # For type edge case
+    # >>> make_full_name(0, "Thomas")
+    # 'Please input strings for the first & last names.'
     
     # Solution 2 assertion
     # >>> make_full_name("Tom","jones")
@@ -205,9 +206,38 @@ def append_to_list(lst, num):
 #    Your function should return the total cost of the item, including tax and
 #    fees.
 
-def calculate_price(FILL_ME_IN):
+def calculate_price(item_cost, state, tax_rate = .05):
+    """Calculates total price by adding tax-by-state to base price
 
-    pass
+    len is a built-in func &  since there is no edge cases above
+    dealing with more/less that two letter state, the error proof skipped
+    for other study's sake. also, negative values of inputs and other
+    edge cases are ignored for the sake of homework.
+    
+    Fun I love, but too much fun is of all things the most loathsome. 
+    Mirth is better than fun, and happiness is better than mirth.
+    - William Blake
+
+    """
+    state = state.upper()
+
+    # calculate after tax amount
+    after_tax_cost = item_cost * (1+tax_rate)
+
+    # calculate total by adding fees
+    if state == 'CA':
+        total = after_tax_cost * (1.03) # 3% recycling fee
+    elif state == 'PA':
+        total = after_tax_cost + 2 # Highway fee
+    elif state == 'MA':
+        if after_tax_cost < 100: # commonwealth fund fee
+            total = after_tax_cost + 1
+        else:
+            total = after_tax_cost + 3
+    else:
+        total = after_tax_cost
+
+    return total
 
 
 ###############################################################################
