@@ -71,31 +71,62 @@ PART TWO:
 # 1. Write a function called 'hello_world' that does not take any arguments and
 #    prints "Hello World".
 
+def hello_world():
+    print "Hello World"
+
 
 # 2. Write a function called 'say_hi' that takes a name as a string and
 #    prints "Hi" followed by the name.
+
+def say_hi(name):
+    print "Hi " + name
 
 
 # 3. Write a function called 'print_product' that takes two integers and
 #    multiplies them together. Print the result.
 
+def print_product(int1, int2):
+    print int1 * int2
+
 
 # 4. Write a function called 'repeat_string' that takes a string and an integer
 #    and prints the string that many times
+
+def repeat_string(the_string, times):
+    print the_string * times
 
 
 # 5. Write a function called 'print_sign' that takes an integer and prints
 #    "Higher than 0" if higher than zero and "Lower than 0" if lower than zero.
 #    If the integer is zero, print "Zero".
 
+def print_sign(integer):
+    """Print a result of comparison result with zero"""
+    if integer > 0:
+        print "Higher than 0"
+    elif integer <0:
+        print "Lower than 0"
+    else: 
+        print "Zero"
+
 
 # 6. Write a function called 'is_divisible_by_three' that takes an integer and
 #    returns a boolean (True or False), depending on whether the number is
 #    evenly divisible by 3.
 
+def is_divisible_by_three(integer):
+    return integer%3 == 0
+
 
 # 7. Write a function called 'num_spaces' that takes a sentence as one string
 #    and returns the number of spaces.
+
+def num_spaces(sentence):
+    counter = 0
+    for i in sentence:
+        if i == " ":
+            counter+=1
+    return counter
 
 
 # 8. Write a function called 'total_meal_price' that can be passed a meal price
@@ -103,6 +134,9 @@ PART TWO:
 #    (price + price * tip). **However:** passing in the tip percentage should
 #    be optional; if not given, it should default to 15%.
 
+def total_meal_price(meal_price, tip_percent = 0.15):
+    return meal_price*(1+tip_percent)
+    
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an
 #    argument and returns two pieces of information as strings --- "Positive"
@@ -112,6 +146,26 @@ PART TWO:
 #    Then, write code that shows the calling of this function on a number and
 #    unpack what is returned into two variables --- sign and parity (whether
 #    it's even or odd). Print sign and parity.
+
+def sign_and_parity(integer):
+
+    result = ['','']
+    
+    # check even/odd and put it on result [0]
+    if integer%2 == 0:
+        result[0] = 'Even'
+    else:
+        result[0] = 'Odd'
+
+    # check positive/negetive and put it on result[1]
+    if integer > 0:
+        result[1] = 'Positive'
+    else:
+        result[1] = 'Negative'
+
+    return result
+    
+
 
 
 ###############################################################################
@@ -133,6 +187,10 @@ PART TWO:
 
 
 ###############################################################################
+
+
+def full_title(string):
+    pass
 
 # END OF PRACTICE: You can ignore everything below.
 
