@@ -189,8 +189,14 @@ def sign_and_parity(integer):
 ###############################################################################
 
 
-def full_title(string):
-    pass
+def full_title(name, job_title = "Engineer"):
+    return job_title + ' ' + name
+
+
+def write_letter(recipient_name, job_title, sender_name):
+    title = full_title(recipient_name, job_title)
+    print "Dear {0}, I think you are amazing! Sincerely, {1}".format(title, sender_name)
+
 
 # END OF PRACTICE: You can ignore everything below.
 
