@@ -86,14 +86,15 @@ def is_hometown(town_name):
     False
     """
 
-    hometown = "City1"
-    return town_name == hometown
+    home_town = "City1"
+    return town_name == home_town
 
     # Question:
     # Python does not allow to check if parameter is there or not
     # inside the function (eg. if(!town_name): return False)
     # Is there a way to catch the error without calling it from
     # other error-catcher function?
+
 
 def make_full_name(first_name, last_name):
     """Concatinate first and last names to make a full name
@@ -112,13 +113,27 @@ def make_full_name(first_name, last_name):
     # 'Tom Jones'
 
     """
+
+    # Type edge case (uses type built-in function)
     if type(first_name) != str or type(last_name) != str:
         return 'Please input strings for the first & last names.'
+
     return first_name+' '+last_name
 
     ## Solution 2: if the first letter needs to be capitalized
     # return first_name[0].upper()+first_name[1:].lower()\
     # +' '+last_name[0].upper()+last_name[1:].lower()
+
+
+def print_greetings(home_town, first_name, last_name):
+    """ Let the user know if from same hometown & otherwise asks where"""
+
+    full_name = make_full_name(first_name, last_name)
+
+    if is_hometown(town_name):
+        print "Hi, %s, we're from the same place!" %full_name
+    else:
+        print "Hi %s, where are you from?"%full_name
 
 
 # PART TWO
@@ -131,8 +146,14 @@ def make_full_name(first_name, last_name):
 def is_berry(fruit):
     """Determines if fruit is a berry"""
 
-    pass
+    fruits = {"strawberry", "cherry", "blackberry"}
 
+    # Type edge case (uses type built-in function)
+    if type(fruit) != str:
+        return 'Please input the fruit name in string.'
+    
+    return fruit in fruits
+    
 
 # (b) Write another function, shipping_cost(), which calculates shipping cost
 #     by taking a fruit name as a string and calling the is_berry() function
@@ -142,7 +163,14 @@ def is_berry(fruit):
 def shipping_cost(fruit):
     """Calculates shipping cost of fruit"""
 
-    pass
+    # Type edge case (uses type built-in function)
+    if type(fruit) != str:
+        return 'Please input the fruit name in string.'
+
+    if is_berry(fruit):
+        return 0
+    else:
+        return 5
 
 
 # 2. Make a function that takes in a number and a list of numbers. It should
@@ -153,7 +181,11 @@ def append_to_list(lst, num):
     """Creates a new list consisting of the old list with the given number
        added to the end."""
 
-    pass
+    # Type edge case (uses type built-in function)
+    if type(num) != int:
+        return 'Please input an integer.'
+
+    return lst + [num]
 
 
 
